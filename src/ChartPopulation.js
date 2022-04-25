@@ -41,7 +41,10 @@ const ChartPopulation = (props) => {
     return (
         <div className=" d-flex flex-column p-2 align-self-stretch" 
             style={{height:'3000px'}}>
-            <Chart type='bar' data={ chartData } options={ options } 
+            <Chart data-testid="graph-element"
+                    type='bar' 
+                    data={ chartData } 
+                    options={ options } 
             className='chart'/>
         </div>    
     )

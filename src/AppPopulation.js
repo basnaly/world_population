@@ -80,13 +80,15 @@ const AppPopulation = () => {
             <div className="d-flex align-items-center"
                     style={ styles.divDisplay }>
                 <div >Select</div>
-                <Button className="mx-1"
+                <Button data-testid="button-table"
+                        className="mx-1"
                         onClick={ () => setClicked(Table) }
                         variant={ 'warning' } size={ "sm" }>
                     Table
                 </Button>
                 <div>or</div>
-                <Button className="mx-1"
+                <Button data-testid="button-graph"
+                        className="mx-1"
                         onClick={ () => setClicked(Graph) }
                         variant={ 'warning' } size={ "sm" }>
                     Graph

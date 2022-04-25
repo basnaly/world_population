@@ -95,7 +95,8 @@ const ComponentPopulation = (props) => {
 
     return(
         <div className="d-flex flex-column align-items-center">
-            <table style={ styles.tab }>
+            <table data-testid="table-element"
+                    style={ styles.tab }>
                 <thead style={ styles.header }>
                     <tr className="align-items-center">
                         <th style={ styles.th }>
@@ -104,6 +105,7 @@ const ComponentPopulation = (props) => {
                         <th style={ styles.th } >
                             <span className="mx-5">Country</span> 
                             <span style={ styles.span }
+                                    data-testid="sort-country"
                                     onClick={ sortCountry } >
                                 ↑↓
                             </span>
@@ -111,6 +113,7 @@ const ComponentPopulation = (props) => {
                         <th style={ styles.th }>
                             <span className="mx-5">Population</span>
                             <span style={ styles.span }
+                                    data-testid="sort-population"
                                     onClick={ sortPopulation } >
                                 ↑↓
                             </span>
@@ -120,7 +123,8 @@ const ComponentPopulation = (props) => {
 
                 <tbody>
                     {props.data.slice(start, (start + PAGE_SIZE)).map((el, i) => 
-                        <tr key={ el.country }>
+                        <tr data-testid="tr-element"
+                            key={ el.country }>
                             <td style={ styles.td }>
                                 {  start + i + 1 }
                             </td>
@@ -138,14 +142,16 @@ const ComponentPopulation = (props) => {
                 <Button onClick={ () => setStart(prev => prev - PAGE_SIZE) }
                     variant={ 'warning' } size={"sm"}
                     className="mx-2"
-                    disabled={start === 0} >
+                    disabled={start === 0} 
+                    data-testid="previous-button">
                         Previous
                 </Button>
                 
                 <Button onClick={ () => setStart(prev => prev + PAGE_SIZE) }
                     variant={ 'warning' } size={"sm"}
                     className="mx-2"
-                    disabled={start + PAGE_SIZE > props.data.length}>
+                    disabled={start + PAGE_SIZE > props.data.length}
+                    data-testid="next-button">
                         Next
                 </Button> 
             </div>
